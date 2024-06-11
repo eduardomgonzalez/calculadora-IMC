@@ -1,7 +1,43 @@
 <template>
-    <lightning-card title="BMI Calculator" icon-name="action:new_note">
+    <lightning-card title="Calculadora IMC" icon-name="action:new_note">
         <form action="">
-            
+            <div class="slds-var-p-around_small">
+                <!-- Edad -->
+                <lightning-input type="text" label="Ingrese su edad" name="age" onchange={handler}
+                class="slds-var-p-around_small">
+                </lightning-input>
+
+                <!-- Sexo -->
+                <lightnint-radio
+                label="Sexo"
+                options={options}
+                onchange={handlerRadioChange}
+                value={Gen}
+                type="radio"
+                class="slds-var-p-around_small">
+                </lightnint-radio>
+
+                <!-- Altura -->
+                <lightning-input type="text" placeholder="Ingrese su altunra en cm" label="Altura" name="height" onchange={handler}
+                class="slds-var-p-around_small">
+                </lightning-input>
+
+                <!-- Peso -->
+                <lightning-input type="text" placeholder="Ingrese su pes en kg" label="Peso" name="weight" onchange={handler}
+                class="slds-var-p-around_small">
+                </lightning-input>
+            </div>
+
+            <!-- Botones -->
+            <div class="slds-var-p-around_small">
+                <lightning-button variant="brand" label="calculatebmi" class="slds-var-p-around_small" onclick={Calculatorhandler}></lightning-button>
+                <lightning-button label="¿Qué es IMC?" onclick={openModal} class="slds-var-p-around_small"></lightning-button>
+                <lightning-button label="Resetear" variant="destructive" onclick={Calculatorhandler} class="slds-var-p-around_small"></lightning-button>
+            </div>
+
+            <template if:true={showModal}>
+                
+            </template>
         </form>
     </lightning-card>
 </template>
