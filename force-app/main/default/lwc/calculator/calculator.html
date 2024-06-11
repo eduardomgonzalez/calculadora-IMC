@@ -3,40 +3,60 @@
         <form action="">
             <div class="slds-var-p-around_small">
                 <!-- Edad -->
-                <lightning-input type="text" label="Ingrese su edad" name="age" onchange={handler}
+                <lightning-input type="text" label="Ingrese su edad" name="age" onchange={handler} value={age}
                 class="slds-var-p-around_small">
                 </lightning-input>
 
                 <!-- Sexo -->
-                <lightnint-radio
+                <lightning-radio-group
                 label="Sexo"
                 options={options}
                 onchange={handlerRadioChange}
-                value={Gen}
+                value={gen}
                 type="radio"
                 class="slds-var-p-around_small">
-                </lightnint-radio>
+                </lightning-radio-group>
 
                 <!-- Altura -->
-                <lightning-input type="text" placeholder="Ingrese su altunra en cm" label="Altura" name="height" onchange={handler}
+                <lightning-input type="text" placeholder="Ingrese su altunra en cm" label="Altura" name="height" onchange={handler} value={height}
                 class="slds-var-p-around_small">
                 </lightning-input>
 
                 <!-- Peso -->
-                <lightning-input type="text" placeholder="Ingrese su pes en kg" label="Peso" name="weight" onchange={handler}
+                <lightning-input type="text" placeholder="Ingrese su pes en kg" label="Peso" name="weight" onchange={handler} value={weight}
                 class="slds-var-p-around_small">
                 </lightning-input>
             </div>
 
             <!-- Botones -->
             <div class="slds-var-p-around_small">
-                <lightning-button variant="brand" label="calculatebmi" class="slds-var-p-around_small" onclick={Calculatorhandler}></lightning-button>
+                <lightning-button variant="brand" label="Calcular IMC" name="calculatebmi" class="slds-var-p-around_small" onclick={calculatorHandler}></lightning-button>
                 <lightning-button label="¿Qué es IMC?" onclick={openModal} class="slds-var-p-around_small"></lightning-button>
-                <lightning-button label="Resetear" variant="destructive" onclick={Calculatorhandler} class="slds-var-p-around_small"></lightning-button>
+                <lightning-button label="Resetear" name="reset" variant="destructive" onclick={calculatorHandler} class="slds-var-p-around_small"></lightning-button>
             </div>
 
+            <!-- Modal que da información sobre el IMC -->
             <template if:true={showModal}>
-                
+                <div class="modal-container slds-var-p-around_small">
+                    <div class="modal-header">IMC </div>
+                    <div class="modal-body">
+                        El índice de masa corporal (IMC) es un valor derivado del peso y la altura de una persona, 
+                        expresado en unidades de kg/m^2, utilizadas para clasificar ampliamente a las personas según la masa 
+                        del tejido y la altura. No diferencia la masa muscular de la masa grasa.
+                    </div>
+                    <div class="modal-footer">
+                        <lightning-button label="Cerrar" onclick={closeModal}></lightning-button>
+                    </div>
+                </div>
+                <div class="modal-backdrop"></div>
+            </template>
+
+            <!-- Renderizado condicional que muestra el resultado del cálculo -->
+            <template lwc:if={displayOutput}>
+                <div class="slds-var-p-around_small">
+                    <p>Tu IMC es: {bmi}</p>
+                    <p>De acuerdo con su edad: {age}, género: {gen}, altura: {het} cm y peso: {weight} kg, su IMC es => {result}</p>
+                </div>
             </template>
         </form>
     </lightning-card>
