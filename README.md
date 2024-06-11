@@ -1,18 +1,26 @@
-# Salesforce DX Project: Next Steps
+# Proyecto Calculadora IMC con Lightning Web Components en Salesforce
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## Descripción
+Proyecto de una Calculadora para calcular el IMC para practicar diferentes conceptos de **LWC** de la cuenta **Salesforce LWC & JavaScript Enthusiasts** en de LinkedIn. 
 
-## How Do You Plan to Deploy Your Changes?
+## Conceptos clave a practicar
+**1) Manejo de formulario:**
+Implementación de elementos de formulario (campos de entrada, botones de radio) y capturado la entrada del usuario.
+Cálculo del IMC basado en los insumos de altura y peso.
+Restablecer los campos de formulario y administrar los envíos de formularios.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+**2) Renderizado condicional:**
+Implementacion de la representación condicional para mostrar la salida en función de las acciones del usuario (por ejemplo, calcular el IMC o restablecer).
+Mostrar/ocultar elementos dinámicamente utilizando banderas booleanas (DisplayOutput, Show, etc.)
 
-## Configure Your Salesforce DX Project
+**3) Cálculo del IMC y clasificación de salud:**
+Calculando el IMC usando la fórmula: IMC = peso (kg) / (altura (m))^2.
+Determinar la clasificación de salud (bajo peso, peso normal, sobrepeso u obesidad) basada en el IMC.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+**4) Manejo de eventos:**
+Manejo de cambios en el botón de radio (HandlerAdioChange) y clics del botón (CalculatorHandler).
+Activaciones de activación basadas en interacciones del usuario
 
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+**5) Diálogos modales:**
+Implementación de un modal dialog (por ejemplo, OpenModal, Closemodal) para las interacciones del usuario.
+Mejora de la experiencia del usuario mostrando información adicional o diálogo de confirmación
